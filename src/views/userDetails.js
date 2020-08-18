@@ -34,8 +34,17 @@ const useStyles = makeStyles((theme) => ({
         padding: "1em",
         display: "flex",
         justifyContent: "center",
+        width: "100%",
+        overflowX: "auto",
         "& > *": {
             margin: "0em 1em",
+        },
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+            alignItems: "center",
+            "& > *": {
+                margin: "1em 0em ",
+            },
         },
     },
     successChip: {
@@ -70,12 +79,12 @@ function UserDetails(props) {
                     <Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
                         <Paper variant="outlined" className={classes.paperStyle}>
                             <Grid container>
-                                <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={classes.gridStyle}>
+                                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.gridStyle}>
                                     <Avatar className={classes.large} src={props.userDetails.singleUser.avatar_url}></Avatar>
                                     <Typography variant="h6">{props.userDetails.singleUser.name || "NA"}</Typography>
                                     <Typography>Location: {props.userDetails.singleUser.location || "Somewhere"}</Typography>
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6} lg={6} xl={6} className={classes.buttonStyle}>
+                                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.buttonStyle}>
                                     <a href={props.userDetails.singleUser.html_url} target="_blank">
                                         <Button variant="contained" color="primary">
                                             View Github Profile
